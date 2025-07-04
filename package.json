@@ -17,7 +17,9 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "minio": "^8.0.5",
     "multer": "^2.0.1"
   }

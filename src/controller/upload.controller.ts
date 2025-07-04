@@ -15,4 +15,25 @@ export class UploadController {
       res.status(500).json({ error: "Erro no upload." });
     }
   }
+
+  async list(req: Request, res: Response): Promise<void> {
+    try {
+      const files = await uploadService.list();
+      res.status(200).json(files);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Erro ao listar arquivos." });
+    }
+  }
+
+  async delete(req: Request, res: Response): Promise<void> {
+    try {
+      const { name } = req.params;
+      await uploadService.delete(name);
+      res.status(200).json({ message: "Arquivo removido com sucesso." });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Erro ao deletar arquivo." });
+    }
+  }
 }

@@ -16,4 +16,11 @@ export class UploadService {
 
     return url;
   }
+  async list(): Promise<{ name: string; url: string }[]> {
+    return this.minioRepository.listFiles();
+  }
+
+  async delete(fileName: string): Promise<void> {
+    return this.minioRepository.deleteFile(fileName);
+  }
 }
