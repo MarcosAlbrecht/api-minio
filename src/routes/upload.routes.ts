@@ -1,9 +1,9 @@
 import { Router } from "express";
 import multer from "multer";
-import { UploadController } from "../controller/upload.controller";
+import { MinioController } from "../controller/minio.controller";
 
 const upload = multer({ dest: "uploads/" });
-const uploadController = new UploadController();
+const uploadController = new MinioController();
 
 const router = Router();
 

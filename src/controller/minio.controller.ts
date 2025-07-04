@@ -3,7 +3,7 @@ import { UploadService } from "../service/upload.service";
 
 const uploadService = new UploadService();
 
-export class UploadController {
+export class MinioController {
   async handle(req: Request, res: Response): Promise<void> {
     try {
       const file = req.file;

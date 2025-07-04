@@ -1,4 +1,6 @@
 import express from "express";
+import "./config";
+
 import uploadRoutes from "./routes/upload.routes";
 
 const app = express();
@@ -6,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(uploadRoutes);
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 4000;
 app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+  console.log(`Servidor rodando na porta: ${PORT}`);
 });
