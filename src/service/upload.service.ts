@@ -20,6 +20,12 @@ export class UploadService {
     return this.minioRepository.listFiles();
   }
 
+  async getPresignedUrl(fileId: string): Promise<string> {
+    // opcional: buscar no seu banco o nome do arquivo pelo ID
+    // ou outro padrão
+    return this.minioRepository.getPresignedUrl(fileId);
+  }
+
   async delete(fileName: string): Promise<void> {
     return this.minioRepository.deleteFile(fileName);
   }

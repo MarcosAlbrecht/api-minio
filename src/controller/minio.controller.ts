@@ -26,6 +26,16 @@ export class MinioController {
     }
   }
 
+  async getUrl(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const url = await uploadService.getPresignedUrl(id);
+      res.status(200).json({ url });
+    } catch (error) {
+      res.status(500).json({ error: "Erro ao gerar URL." });
+    }
+  }
+
   async delete(req: Request, res: Response): Promise<void> {
     try {
       const { name } = req.params;
